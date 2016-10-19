@@ -1,13 +1,9 @@
 import * as hapi from "hapi";
-import * as joi from "joi";
 import * as min from "minimist";
+const inert = require("inert");
+const path = require("path");
 
 let argv = min(process.argv);
-
-// let argsSchema = joi.number().required().positive();
-// joi.validate(argv.p, argsSchema, function(err, value) {
-//     console.log(err + " " + value);
-// });
 
 let server = new hapi.Server();
 server.connection({
@@ -15,17 +11,21 @@ server.connection({
     port: process.argv[2] || 8080
 });
 
+
+server.register(inert, function (err) {
+    if (err) throw err;
+});
+
 server.route({
     method: 'GET',
-    path: '/',
-    handler: getHandler
-})
+    path: '/foo/bar/baz/{file}',
+    handler: {
+        directory: {
+            path: path.join(__dirname, 'public')
+        }
+    }
+});
 
 server.start((err) => {
     console.log("Server started!");
 });
-
-
-function getHandler(request, reply) {
-    reply("Hello hapi");
-}

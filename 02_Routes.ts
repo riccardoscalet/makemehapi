@@ -1,13 +1,7 @@
 import * as hapi from "hapi";
-import * as joi from "joi";
 import * as min from "minimist";
 
 let argv = min(process.argv);
-
-// let argsSchema = joi.number().required().positive();
-// joi.validate(argv.p, argsSchema, function(err, value) {
-//     console.log(err + " " + value);
-// });
 
 let server = new hapi.Server();
 server.connection({
@@ -17,7 +11,7 @@ server.connection({
 
 server.route({
     method: 'GET',
-    path: '/',
+    path: '/{name}',
     handler: getHandler
 })
 
@@ -27,5 +21,5 @@ server.start((err) => {
 
 
 function getHandler(request, reply) {
-    reply("Hello hapi");
+    reply("Hello " + request.params.name);
 }

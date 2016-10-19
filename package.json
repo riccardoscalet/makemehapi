@@ -5,8 +5,10 @@
   "main": "01_Hello_Hapi.js",
   "dependencies": {
     "hapi": "^15.1.1",
+    "inert": "^4.0.2",
     "joi": "^9.2.0",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "scripts": {
