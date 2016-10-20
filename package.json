@@ -11,6 +11,8 @@
     "joi": "^9.2.0",
     "minimist": "^1.2.0",
     "path": "^0.12.7",
+    "pump": "^1.0.1",
+    "rot13-transform": "^1.0.0",
     "vision": "^4.1.0"
   },
   "devDependencies": {},

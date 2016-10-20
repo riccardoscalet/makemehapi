@@ -1,5 +1,8 @@
 import * as hapi from "hapi";
 import * as min from "minimist";
+import * as fs from "fs";
+const pump = require("pump");
+const rot13 = require("rot13-transform");
 
 let argv = min(process.argv);
 
@@ -21,5 +24,8 @@ server.start((err) => {
 
 
 function getHandler(request, reply) {
-    reply("Hello " + request.params.name);
+    let fileStream = fs.createReadStream("./files/08_Streams.txt");
+    let rot13Stream = rot13();
+    pump(fileStream, rot13Stream);
+    reply(rot13Stream);
 }
