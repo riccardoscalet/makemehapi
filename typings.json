@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
+    "boom": "registry:dt/boom#0.0.0+20160724101333",
     "handlebars": "registry:dt/handlebars#4.0.5+20160804082238",
     "hapi": "registry:dt/hapi#13.0.0+20161014012508",
     "joi": "registry:dt/joi#9.0.0+20160906140128",
