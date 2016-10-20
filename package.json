@@ -4,6 +4,7 @@
   "description": "",
   "main": "01_Hello_Hapi.js",
   "dependencies": {
+    "h2o2": "^5.4.0",
     "handlebars": "^4.0.5",
     "hapi": "^15.1.1",
     "inert": "^4.0.2",
