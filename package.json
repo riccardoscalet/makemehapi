@@ -4,11 +4,13 @@
   "description": "",
   "main": "01_Hello_Hapi.js",
   "dependencies": {
+    "handlebars": "^4.0.5",
     "hapi": "^15.1.1",
     "inert": "^4.0.2",
     "joi": "^9.2.0",
     "minimist": "^1.2.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "vision": "^4.1.0"
   },
   "devDependencies": {},
   "scripts": {
