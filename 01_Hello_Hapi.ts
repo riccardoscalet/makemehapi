@@ -9,18 +9,21 @@ let argv = min(process.argv);
 //     console.log(err + " " + value);
 // });
 
+// Initializes server
 let server = new hapi.Server();
 server.connection({
     host: 'localhost',
     port: process.argv[2] || 8080
 });
 
+// Sets a route
 server.route({
     method: 'GET',
     path: '/',
     handler: getHandler
 })
 
+// Starts server
 server.start((err) => {
     console.log("Server started!");
 });

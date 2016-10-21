@@ -15,10 +15,12 @@ server.register(auth, function (err) {
     if (err) throw err;
 });
 
+// Configures an authentication policy.
 server.auth.strategy("simpleAuthenticationBanana", "basic", {
     validateFunc: authenticate
 });
 
+// Sets a route that processes authentication and then, if succeded, executes the handler.
 server.route({
     method: "GET",
     path: "/",
@@ -35,6 +37,8 @@ server.start((err) => {
     console.log("Server started!");
 });
 
+
+// Function that checks authentication credentials.
 function authenticate(request, username, password, callback) {
     if (username == "hapi" && password == "auth") return callback(null, true, {
         name: username

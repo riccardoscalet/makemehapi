@@ -9,6 +9,7 @@ server.connection({
     port: process.argv[2] || 8080
 });
 
+// Sets a route that accepts a stream request from the client. 
 server.route({
     method: 'POST',
     path: '/upload',
@@ -27,6 +28,7 @@ server.start((err) => {
 });
 
 
+// This handler reads the stream received by the client (inside the request).
 function uploadHandler(request, reply) {
     var file = request.payload.file;
 

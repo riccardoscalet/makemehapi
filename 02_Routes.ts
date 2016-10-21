@@ -9,6 +9,7 @@ server.connection({
     port: process.argv[2] || 8080
 });
 
+// Sets a route with a parameter defined in the url
 server.route({
     method: 'GET',
     path: '/{name}',

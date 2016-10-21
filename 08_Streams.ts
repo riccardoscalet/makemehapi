@@ -22,7 +22,7 @@ server.start((err) => {
     console.log("Server started!");
 });
 
-
+// This handler replies with a stream.
 function getHandler(request, reply) {
     let fileStream = fs.createReadStream("./files/08_Streams.txt");
     let rot13Stream = rot13();

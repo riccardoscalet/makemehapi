@@ -15,6 +15,7 @@ server.register(h2o2, function (err) {
     if (err) throw err;
 });
 
+// Sets a proxy route that redirects the REST call.
 server.route({
     method: 'GET',
     path: '/proxy',

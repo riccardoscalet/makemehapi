@@ -15,7 +15,7 @@ server.route({
     path: '/set-cookie',
     handler: setCookie,
     config: {
-        state: {
+        state: { // Configures how this route manages state. 
             parse: true,
             failAction: "log"
         }
@@ -27,13 +27,14 @@ server.route({
     path: '/check-cookie',
     handler: checkCookie,
     config: {
-        state: {
+        state: { // Configures how this route manages state. 
             parse: true,
             failAction: "error" // This will cause server to return error immediately. The test causes this on purpose.
         }
     }
 });
 
+// Configures a server state (how cookies are managed).
 server.state("session", {
     path: "/",
     domain: "localhost",
@@ -55,11 +56,14 @@ function setCookie(request, reply) {
         key: "makemehapi"
     };
 
+    // Sends a cookie back to the client, with "session" state configuration.
     reply("success").state("session", session);
 }
 
 function checkCookie(request, reply) {
-    let session = request.state.session;   
+    // Gets cookie from client request, if it exists.
+    let session = request.state.session;
+
     if (session) reply({user: "hapi"});
     else reply(boom.unauthorized("You fucked up. Expired cookie."));
 }

@@ -17,7 +17,7 @@ server.route({
     config: {
         validate: {
             params: {
-                breed: joi.any().required()
+                breed: joi.any().required() // Validates parameters with joi.
             }        
         }
     }

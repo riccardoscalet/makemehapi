@@ -16,6 +16,8 @@ server.route({
     handler: loginHandler,
     config: {
         validate: {
+
+            // Validates payload of the POST call using joi. 
             payload: joi.object({
                     isGuest: joi.bool().required(),
                     username: joi.string().when('isGuest', {

@@ -17,14 +17,17 @@ server.register(vision, function (err) {
     if (err) throw err;
 });
 
+// Configures views
 server.views({
     engines: {
         html: handlebars
     },
-    path: path.join(__dirname, 'templates'),
-    helpersPath: 'helpers'
+    path: path.join(__dirname, 'templates'), // Path of template views.
+    helpersPath: 'helpers' // Path of js helper files
 });
 
+// Sets a route that returns a template view.
+// The view is customized by an helper script (check "07_index.html"). 
 server.route({
     method: 'GET',
     path: '/',
