@@ -5,4 +5,5 @@ export class TestGitPullPushCommit {
     banana5: String;
     kiwi: String;
     ananas: String;
+    doublePear: Number;
 }
