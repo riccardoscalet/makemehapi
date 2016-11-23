@@ -6,4 +6,5 @@ export class TestGitPullPushCommit {
     kiwi: String;
     ananasTiny: String;
     doublePear: Number;
+    melonzzz: Number;
 }
